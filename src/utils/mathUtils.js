@@ -1,6 +1,5 @@
 function isArmstrong(num) {
   const positiveNum = Math.abs(num);
-  console.log(positiveNum);
   const digits = String(positiveNum).split("");
   const power = digits.length;
   const sum = digits.reduce((acc, digit) => acc + Math.pow(Number(digit), power), 0);
@@ -9,7 +8,6 @@ function isArmstrong(num) {
 
 function isPrime(num) {
   const positiveNum = Math.abs(num);
-  console.log(positiveNum);
   if (positiveNum <= 3) return true;
   if (positiveNum % 2 === 0 || positiveNum % 3 === 0) return false;
 
@@ -21,7 +19,6 @@ function isPrime(num) {
 
 function isPerfect(num) {
   const positiveNum = Math.abs(num);
-  console.log(positiveNum);
   let sum = 1;
 
   for (let i = 2; i * i <= positiveNum; i++) {
@@ -37,7 +34,6 @@ function isPerfect(num) {
 
 function getDigitSum(num) {
   const positiveNum = Math.abs(num);
-  console.log(positiveNum);
   return String(positiveNum)
     .split("")
     .reduce((sum, digit) => sum + Number(digit), 0);
