@@ -1,10 +1,5 @@
-const axios = require('axios');
-const { 
-  isArmstrong,
-  isPrime,
-  isPerfect,
-  getDigitSum
-} = require('../utils/mathUtils');
+const axios = require("axios");
+const { isArmstrong, isPrime, isPerfect, getDigitSum } = require("../utils/mathUtils");
 
 async function getFunFact(number) {
   try {
@@ -17,18 +12,20 @@ async function getFunFact(number) {
 
 function getNumberProperties(number) {
   const properties = [];
-  
+
+  const positivenumber = Math.abs(number);
+
   if (isArmstrong(number)) {
-    properties.push('armstrong');
+    properties.push("armstrong");
   }
-  
-  properties.push(number % 2 === 0 ? 'even' : 'odd');
-  
+
+  properties.push(number % 2 === 0 ? "even" : "odd");
+
   return {
     is_prime: isPrime(number),
     is_perfect: isPerfect(number),
     properties,
-    digit_sum: getDigitSum(number)
+    digit_sum: getDigitSum(number),
   };
 }
 
