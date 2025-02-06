@@ -4,7 +4,7 @@ async function classifyNumber(req, res) {
   try {
     const number = parseInt(req.query.number);
 
-    if (isNaN(number) || !Number.isInteger(number)) {
+    if (!number || isNaN(number) || !Number.isInteger(number)) {
       return res.status(400).json({
         number: "alphabet",
         error: true,
