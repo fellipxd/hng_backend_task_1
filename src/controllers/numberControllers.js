@@ -2,11 +2,11 @@ const { getNumberProperties, getFunFact } = require("../services/numberService")
 
 async function classifyNumber(req, res) {
   try {
-    const number = req.params.number ? parseInt(req.params.number) : 371;
+    const number = parseInt(req.query.number);
 
     if (isNaN(number) || !Number.isInteger(number)) {
       return res.status(400).json({
-        number: req.query.number,
+        number: "alphabet",
         error: true,
       });
     }
