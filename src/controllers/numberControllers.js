@@ -2,14 +2,17 @@ const { getNumberProperties, getFunFact } = require("../services/numberService")
 
 async function classifyNumber(req, res) {
   try {
-    const number = parseInt(req.query.number);
+    let numberString = req.query.number; // Keep input as string for validation
 
-    if (!number || isNaN(number) || !Number.isInteger(number)) {
+    // Validate: Must be a whole number (integer) with optional negative sign
+    if (!/^-?\d+$/.test(numberString)) {
       return res.status(400).json({
         number: "alphabet",
         error: true,
       });
     }
+
+    let number = parseInt(numberString, 10); // Convert string to integer safely
 
     const properties = getNumberProperties(number);
     const funFact = await getFunFact(number);
