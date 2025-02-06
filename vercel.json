@@ -11,6 +11,10 @@
   ],
   "routes": [
     {
+      "src": "/",
+      "dest": "/api/classify-number?number=371"
+    },
+    {
       "src": "/(.*)",
       "dest": "/src/index.js"
     }
